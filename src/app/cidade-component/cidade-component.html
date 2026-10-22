@@ -1,0 +1,56 @@
+<div class="container">
+
+  <div class="display-4 text-center">Cadastro de Cidade</div>
+
+  <form [formGroup]="formGroupCidade" (ngSubmit)="save()">
+   <div class="mb-3">
+      <label for="inputName" class="form-label">Nome</label>
+      <input formControlName="name"  type="text" class="form-control" id="inputName">
+    </div>
+
+    <div class="mb-3">
+      <label for="inputState" class="form-label">Estado</label>
+      <input formControlName="state" type="text" class="form-control" id="inputState">
+    </div>
+
+    <div class="mb-3">
+      <label for="inputCountry" class="form-label">País</label>
+      <input formControlName="country"   type="text" class="form-control" id="inputCountry">
+    </div>
+
+    <div class="mb-3">
+      <label for="inputPopulation" class="form-label">População</label>
+      <input formControlName="population" type="number" class="form-control" id="inputPopulation">
+    </div>
+
+    <div class="mb-3">
+      <label for="inputMonuments" class="form-label">Monumentos</label>
+      <input formControlName="monuments" type="text" class="form-control" id="inputMonuments">
+    </div>
+
+    <button type="submit" class="btn btn-primary"> Salvar</button>
+  </form>
+
+  Total de cidades: {{cidades.length}}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Estado</th>
+      <th scope="col">País</th>
+      <th scope="col">População</th>
+      <th scope="col">Monumentos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of cidades">
+      <td>{{p.name}}</td>
+      <td>{{p.state}}</td>
+      <td>{{p.country}}</td>
+      <td>{{p.population}}</td>
+      <td>{{p.monuments.join(', ')}}</td>
+    </tr>
+   </tbody>
+</table>
+</div>
