@@ -33,24 +33,18 @@
 
   Total de cidades: {{cidades.length}}
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Nome</th>
-      <th scope="col">Estado</th>
-      <th scope="col">País</th>
-      <th scope="col">População</th>
-      <th scope="col">Monumentos</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let p of cidades">
-      <td>{{p.name}}</td>
-      <td>{{p.state}}</td>
-      <td>{{p.country}}</td>
-      <td>{{p.population}}</td>
-      <td>{{p.monuments.join(', ')}}</td>
-    </tr>
-   </tbody>
-</table>
-</div>
+<div class="container mt-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col" *ngFor="let city of cidades">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ city.name }}</h5>
+            <p class="card-text">
+              {{ city.state }} - {{ city.country }}
+            </p>
+            <span class="badge bg-secondary">População: {{ city.population }}</span>
+            <span class="badge bg-secondary">Ano de Fundação: {{ city.monuments }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
